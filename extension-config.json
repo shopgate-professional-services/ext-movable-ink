@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-beta.1",
+  "id": "@shopgate-project/movable-ink",
+  "components": [
+    {
+      "id": "MovableInkWidget",
+      "path": "frontend/widgets/MovableInkWidget",
+      "type": "widgets",
+      "description": "Movable ink widget for images with custom variables"
+    }
+  ],
+  "configuration": {
+
+  }
+}
