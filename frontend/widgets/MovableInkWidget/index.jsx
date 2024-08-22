@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Handlebars from 'handlebars/dist/handlebars';
 import { fetchCustomerData } from '@shopgate/engage/account/actions/fetchCustomer';
@@ -43,7 +43,27 @@ const MovableInkWidget = ({
     }
   }, [fetchCustomer, isLoggedIn, customer]);
 
+  const checkHandlebarsVariables = useCallback((url, customerData) => {
+    // Use match to find all handlebars variables that start with {{customer.
+    const matches = url.match(/{{customer\.(\w+)}}/g);
+
+    if (!matches) return true;
+
+    // Check if every extracted key exists in the customer object
+    return matches.every((match) => {
+      const key = match.match(/{{customer\.(\w+)}}/)?.[1];
+
+      return key && customerData.hasOwnProperty(key);
+    });
+  }, []);
+
   if (!imageUrl || !customer) {
+    return null;
+  }
+
+  const variablesResolved = checkHandlebarsVariables(imageUrl, customer);
+
+  if (!variablesResolved) {
     return null;
   }
 
