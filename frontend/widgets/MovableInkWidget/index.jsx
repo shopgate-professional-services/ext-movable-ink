@@ -38,21 +38,23 @@ const MovableInkWidget = ({
   const { imageUrl, linkUrl } = settings;
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && !customer) {
       fetchCustomer();
     }
-  }, [fetchCustomer, isLoggedIn]);
+  }, [fetchCustomer, isLoggedIn, customer]);
 
-  if (!imageUrl || !linkUrl || !customer) {
+  if (!imageUrl || !customer) {
     return null;
   }
 
-  const template = Handlebars.compile(imageUrl, { options: { noEscape: true } });
+  const template = Handlebars.compile(imageUrl);
   const parsedUrl = template({ customer });
 
   return (
     <div>
-      <img src={parsedUrl} alt="" />
+      <a href={linkUrl || ''}>
+        <img src={parsedUrl} alt="" />
+      </a>
     </div>
   );
 };
