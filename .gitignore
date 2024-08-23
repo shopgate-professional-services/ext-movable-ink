@@ -61,6 +61,7 @@ typings/
 build
 .idea/
 npm-debug.log
+package-lock.json
 extension/coverage
 extension/node_modules
 extension/config.json
