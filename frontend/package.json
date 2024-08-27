@@ -1,6 +1,6 @@
 {
   "name": "@shopgate-project/movable-ink",
-  "description": "This extension enables custom variables in html widget",
+  "description": "This extension enables displaying movable ink widgets",
   "license": "Apache-2.0",
   "scripts": {
     "test": "echo TBA"
@@ -11,7 +11,7 @@
     "eslint": "^7.9.0"
   },
   "peerDependencies": {
-    "@shopgate/engage": "^7.12.3",
+    "@shopgate/engage": ">=7.12.3",
     "glamor": "^2.20.40",
     "prop-types": "~15.7.2",
     "react": "~16.12.0"

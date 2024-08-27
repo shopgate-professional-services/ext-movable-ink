@@ -3,10 +3,15 @@
   "id": "@shopgate-project/movable-ink",
   "components": [
     {
-      "id": "MovableInkWidget",
-      "path": "frontend/widgets/MovableInkWidget",
+      "id": "ImageWidget",
+      "path": "frontend/widgets/ImageWidget",
       "type": "widgets",
-      "description": "Movable ink widget for images with custom variables"
+      "description": "Movable ink widget for images with customer variables"
+    },
+    {
+      "id": "Subscribers",
+      "path": "frontend/subscriptions.js",
+      "type": "subscribers"
     }
   ],
   "configuration": {

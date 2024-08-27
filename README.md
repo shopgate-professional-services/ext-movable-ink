@@ -1,6 +1,6 @@
 # Shopgate Connect - Movable-ink
 
-This extension enables the use of variables for customer data in HTML widgets.
+This extension enables displaying movable ink widgets, including the use of variables for customer data.
 
 
 
