@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Handlebars from 'handlebars/dist/handlebars';
 import { connect } from 'react-redux';
-import { getCustomer } from '@shopgate/engage/account/selectors/customer';
+import { getEditedCustomer } from '../../selectors´';
 
 /**
  * Maps state to props.
@@ -10,7 +10,7 @@ import { getCustomer } from '@shopgate/engage/account/selectors/customer';
  * @returns {Object}
  */
 const mapStateToProps = state => ({
-  customer: getCustomer(state),
+  customer: getEditedCustomer(state),
 });
 
 /**
