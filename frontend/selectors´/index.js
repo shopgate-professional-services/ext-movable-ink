@@ -7,8 +7,10 @@ export const getEditedCustomer = createSelector(
     if (!customer) {
       return null;
     }
+
     const billingAddress = customer?.contacts.find(contact => contact.isDefaultBilling === true);
     const shippingAddress = customer?.contacts.find(contact => contact.isDefaultShipping === true);
+
     const restructuredAttributes = customer.attributes.reduce((acc, attribute) => {
       if (attribute.value.name) {
         acc[attribute.code] = attribute.value.name;
