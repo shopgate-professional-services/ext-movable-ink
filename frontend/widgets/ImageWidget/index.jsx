@@ -63,19 +63,19 @@ const ImageWidget = ({
   const handleClick = useCallback(async () => {
     if (parsedLinkUrl) {
       // redirect to deep link url
-      const redirectUrl = await getRedirectUrl(
-        parsedLinkUrl
-      );
+      const redirectUrl = await getRedirectUrl(parsedLinkUrl);
+
+      if (!redirectUrl) {
+        return;
+      }
 
       if (redirectUrl.includes('/product/')) {
         const productCode = redirectUrl.split('/product/')[1];
         navigate(getProductRoute(productCode));
-      }
-      if (redirectUrl.includes('/cat/')) {
+      } else if (redirectUrl.includes('/cat/')) {
         const catCode = redirectUrl.split('/cat/')[1];
         navigate(getCategoryRoute(catCode));
-      }
-      if (redirectUrl.includes('/page/')) {
+      } else if (redirectUrl.includes('/page/')) {
         const cmsPage = redirectUrl.split('/page/')[1];
         navigate(cmsPage);
       }
