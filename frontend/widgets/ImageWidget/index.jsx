@@ -63,7 +63,7 @@ const ImageWidget = ({
   const handleClick = useCallback(async () => {
     if (parsedLinkUrl) {
       // redirect to deep link url
-      const redirectUrl = await getRedirectUrl(parsedLinkUrl, 'usion.curbside.shopgatedev.com/page/favourite_list');
+      const redirectUrl = await getRedirectUrl(parsedLinkUrl);
 
       if (!redirectUrl) {
         return;
@@ -96,6 +96,7 @@ const ImageWidget = ({
         border: 'none',
         padding: 0,
         cursor: parsedLinkUrl ? 'pointer' : 'default',
+        display: 'flex',
       }}
     >
       <img src={parsedImageUrl} alt="" />
