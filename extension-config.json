@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-beta.1",
+  "id": "@shopgate-project/movable-ink",
+  "components": [
+    {
+      "id": "ImageWidget",
+      "path": "frontend/widgets/ImageWidget",
+      "type": "widgets",
+      "description": "Movable ink widget for images with customer variables"
+    },
+    {
+      "id": "Subscribers",
+      "path": "frontend/subscriptions.js",
+      "type": "subscribers"
+    }
+  ],
+  "configuration": {
+
+  }
+}
