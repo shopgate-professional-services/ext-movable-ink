@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { historyPush } from '@shopgate/pwa-common/actions/router';
 import { getProductRoute } from '@shopgate/pwa-common-commerce/product/helpers';
 import { getCategoryRoute } from '@shopgate/pwa-common-commerce/category';
-import { getEditedCustomer } from '../../selectors´';
+import { getEditedCustomer } from '../../selectors';
 import { getRedirectUrl } from '../../helpers';
 
 /**
@@ -63,7 +63,7 @@ const ImageWidget = ({
   const handleClick = useCallback(async () => {
     if (parsedLinkUrl) {
       // redirect to deep link url
-      const redirectUrl = await getRedirectUrl(parsedLinkUrl);
+      const redirectUrl = await getRedirectUrl(parsedLinkUrl, 'usion.curbside.shopgatedev.com/page/favourite_list');
 
       if (!redirectUrl) {
         return;
@@ -77,7 +77,7 @@ const ImageWidget = ({
         navigate(getCategoryRoute(catCode));
       } else if (redirectUrl.includes('/page/')) {
         const cmsPage = redirectUrl.split('/page/')[1];
-        navigate(cmsPage);
+        navigate(`/page/${cmsPage}`);
       }
     }
   }, [navigate, parsedLinkUrl]);
@@ -88,6 +88,7 @@ const ImageWidget = ({
 
   return (
     <button
+      aria-hidden
       onClick={handleClick}
       type="button"
       style={{
